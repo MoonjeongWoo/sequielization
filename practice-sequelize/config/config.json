@@ -1,0 +1,9 @@
+{
+  "development": {
+    "host": "localhost",
+    "database": "kdt_test",
+    "username": "user",
+    "password": "answjddn123!@#*",
+    "dialect": "mysql"
+  }
+}
