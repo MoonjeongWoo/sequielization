@@ -1,45 +1,44 @@
 const mysql = require("mysql");
 const cnn = mysql.createConnection({
-    host: 'localhost',
-    user: 'user',
-    password: 'qwer1234*',
-    database: 'kdt_test'
+  host: "localhost",
+  user: "user",
+  password: "answjddn123!@#",
+  database: "kdt_test",
 });
 
 exports.post_signup = (data, cb) => {
-    let sql = `INSERT INTO user(id, name, pw) VALUES('${data.id}','${data.name}','${data.pw}');`;
-    cnn.query( sql, function(err, rows){
-        if ( err ) throw err;
-        cb(rows);
-    });
-}
+  let sql = `INSERT INTO user(id, name, pw) VALUES('${data.id}','${data.name}','${data.pw}');`;
+  cnn.query(sql, function (err, rows) {
+    if (err) throw err;
+    cb(rows);
+  });
+};
 
 exports.post_signin = (id, pw, cb) => {
-    let sql = `SELECT * FROM user WHERE id='${id}' and pw='${pw}' limit 1;`;
-    cnn.query( sql, function(err, rows){
-        if ( err ) throw err;
-        cb(rows);
-    });
-}
+  let sql = `SELECT * FROM user WHERE id='${id}' and pw='${pw}' limit 1;`;
+  cnn.query(sql, function (err, rows) {
+    if (err) throw err;
+    cb(rows);
+  });
+};
 exports.get_user = (id, cb) => {
-    let sql = `SELECT * FROM user WHERE id='${id}' limit 1;`;
-    cnn.query( sql, function(err, rows){
-        if ( err ) throw err;
-        cb(rows);
-    });
-}
+  let sql = `SELECT * FROM user WHERE id='${id}' limit 1;`;
+  cnn.query(sql, function (err, rows) {
+    if (err) throw err;
+    cb(rows);
+  });
+};
 
 exports.update_profile = (data, cb) => {
-    let sql = `UPDATE user SET name='${data.name}', pw='${data.pw}' WHERE id='${data.id}'`;
-    cnn.query( sql, ( err, rows ) => {
-        if ( err ) throw err;
-        cb( rows );
-    })
-
-}
+  let sql = `UPDATE user SET name='${data.name}', pw='${data.pw}' WHERE id='${data.id}'`;
+  cnn.query(sql, (err, rows) => {
+    if (err) throw err;
+    cb(rows);
+  });
+};
 exports.delete_user = (id, cb) => {
-    cnn.query(`DELETE FROM user WHERE id='${id}'`, (err, rows) => {
-        if ( err ) throw err;
-        cb(rows);
-    });
-}
+  cnn.query(`DELETE FROM user WHERE id='${id}'`, (err, rows) => {
+    if (err) throw err;
+    cb(rows);
+  });
+};
